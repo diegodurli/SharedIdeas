@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'jquery-rails'
 gem 'devise'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'sqlite3'

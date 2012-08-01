@@ -3,6 +3,14 @@ SharedIdeas::Application.routes.draw do
 
   devise_for :users, path_names: {sign_in: 'signin', sign_out: 'signout', sign_up: 'signup'}
 
+  resources :topics do
+    resources :comments
+  end
+
+  resources :galleries do
+    resources :documents
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
