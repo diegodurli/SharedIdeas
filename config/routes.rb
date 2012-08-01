@@ -1,4 +1,8 @@
 SharedIdeas::Application.routes.draw do
+  root to: 'pages#index'
+
+  devise_for :users, path_names: {sign_in: 'signin', sign_out: 'signout', sign_up: 'signup'}
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

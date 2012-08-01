@@ -1,0 +1,106 @@
+@import "twitter/bootstrap/bootstrap";
+body{padding-top: 60px;}
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/less.html for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
+
+@bodyColor: darken(@grayLighter, 2%);
+@tableBackground: @black;
+
+body {
+	background: @bodyColor;
+}
+
+.centerObj(@height: 100px, @width: 100px) {
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:(@width/-2);
+  margin-top:(@height/-2);
+}
+
+.centerObjWidth(@width: 100px) {
+  position:absolute;
+  left:50%;
+  margin-left:(@width/-2);
+}
+
+.index_page {
+	@width: 500px;
+	@height: 300px;
+	.size(@height,@width);
+	.centerObj(@height,@width);
+}
+
+.text_index_page {
+	h2 { font-size: 30px; }
+	font-size: 20px;
+}
+
+.about_page {
+	@width: 500px;
+	@height: 400px;
+	.size(@height,@width);
+	.centerObj(@height,@width);
+
+	.about_page_header {
+		p { font-size: 50px; }
+		@width_header: 410px;
+		@height_header: 30px;
+		.size(@height_header,@width_header);
+		.centerObjWidth(@width_header);
+	}
+
+	.about_page_body {
+		font-size: 25px;
+		p { font-size: 20px; }
+		@width_body: 500px;
+		@height_body: 100px;
+		.size(@height_body,@width_body);
+		margin-top: 30px;
+		padding-top: 70px;
+	}
+}
+
+.btn-large {
+	@width: 500px;
+	@height: 50px;
+	.size(@height,@width);
+	.centerObjWidth(@width);
+}
+
+.btn-large1 {
+	margin-top: 40px;
+	padding: 35px 0px 0px 0px;
+}
+
+.btn-large2 {
+	margin-top: 135px;
+	padding: 35px 0px 0px 0px;
+}
+
+.btn-large3 {
+	font-size: 25px;
+	padding: 20px 0px 0px 0px;
+}
+
+.remote-form {
+	padding-top: 80px;
+}
+
+.buttons-remote-form {
+	margin-left: 160px;
+}
