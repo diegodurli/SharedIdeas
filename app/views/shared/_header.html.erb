@@ -8,16 +8,15 @@
       <div class="nav-collapse">
         <ul class="nav">
 					<% if user_signed_in? %>
-					  Logged in as <strong><%= current_user.email %></strong>.
-					  <%= link_to 'Edit profile', edit_user_registration_path %> |
 					  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+						<%= link_to 'Topics', topics_path %>
+						<%= link_to 'Gallery', galleries_path %>
 					<% else %>
-					  <%= link_to 'Sign up', new_user_registration_path %> |
 					  <%= link_to 'Login', new_user_session_path %>
 					<% end %>
         </ul>
 				<% if user_signed_in? %>
-					<p class="navbar-text pull-right">Logged in as <a href="<%= user_path(current_user) %>"><%= current_user.email %></a></p>
+					<p class="navbar-text pull-right">Logged in as <%= current_user.email %></p>
 				<% end %>
       </div>
     </div>

@@ -1,9 +1,8 @@
-<h1>Listing documents</h1>
+<h2>Listing documents</h2>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Document</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,14 +11,13 @@
 <% @documents.each do |document| %>
   <tr>
     <td><%= document.name %></td>
-    <td><%= document.document %></td>
-    <td><%= link_to 'Show', document %></td>
-    <td><%= link_to 'Edit', edit_document_path(document) %></td>
-    <td><%= link_to 'Destroy', document, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', gallery_document_path(id: document) %></td>
+    <td><%= link_to 'Edit', edit_gallery_document_path(id: document) %></td>
+    <td><%= link_to 'Destroy', gallery_document_path(id: document), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Document', new_document_path %>
+<%= link_to 'New Document', new_gallery_document_path %>

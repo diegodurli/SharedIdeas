@@ -1,83 +1,42 @@
 class GalleriesController < ApplicationController
-  # GET /galleries
-  # GET /galleries.json
+  before_filter :authenticate_user!, :find_gallery
+
   def index
-    @galleries = Gallery.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @galleries }
-    end
+    respond_with @galleries
   end
 
-  # GET /galleries/1
-  # GET /galleries/1.json
   def show
-    @gallery = Gallery.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @gallery }
-    end
+    respond_with @gallery
   end
 
-  # GET /galleries/new
-  # GET /galleries/new.json
   def new
     @gallery = Gallery.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @gallery }
-    end
+    respond_with @gallery
   end
 
-  # GET /galleries/1/edit
   def edit
-    @gallery = Gallery.find(params[:id])
   end
 
-  # POST /galleries
-  # POST /galleries.json
   def create
     @gallery = Gallery.new(params[:gallery])
-
-    respond_to do |format|
-      if @gallery.save
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
-        format.json { render json: @gallery, status: :created, location: @gallery }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
-      end
-    end
+    alert[:alert] = "Gallery wasn't successfully created." unless @gallery.save
+    respond_with @gallery
   end
 
-  # PUT /galleries/1
-  # PUT /galleries/1.json
   def update
-    @gallery = Gallery.find(params[:id])
-
-    respond_to do |format|
-      if @gallery.update_attributes(params[:gallery])
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:alert] = "Gallery wasn't successfully updated." unless @gallery.update_attributes(params[:gallery])
+    respond_with @gallery
   end
 
-  # DELETE /galleries/1
-  # DELETE /galleries/1.json
   def destroy
-    @gallery = Gallery.find(params[:id])
     @gallery.destroy
+    redirect_to galleries_path
+  end
+  
+  protected
 
-    respond_to do |format|
-      format.html { redirect_to galleries_url }
-      format.json { head :no_content }
-    end
+  def find_gallery
+    @galleries = Gallery.all           unless params[:id]
+    @gallery   = Gallery.find(params[:id]) if params[:id]
   end
 end
