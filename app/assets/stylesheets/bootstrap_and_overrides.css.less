@@ -25,7 +25,7 @@ body {
 }
 
 .navbar-inner {
-  background: #dff0d8;
+  background: @white;
 }
 
 .centerObj(@height: 100px, @width: 100px) {
@@ -79,11 +79,10 @@ body {
 	}
 }
 
-.btn-large {
-	@width: 500px;
-	@height: 50px;
+.btn-large2 {
+	@width: 30px;
+	@height: 30px;
 	.size(@height,@width);
-	.centerObjWidth(@width);
 }
 
 .btn-large1 {
@@ -107,4 +106,12 @@ body {
 
 .buttons-remote-form {
 	margin-left: 160px;
+}
+
+.login-form {
+	@width: 31.4%;
+	@height: 3.2%;
+	.size(@height,@width);
+	.centerObj(@height,@width);
+	.scale(1.5);
 }

@@ -1,24 +1,31 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+<div class="container">
+	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	  </a>
+    <div class="btn-group pull-right">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-user"></i><%= current_user.email unless !user_signed_in? %>
+        <span class="caret"></span>
       </a>
-      <div class="nav-collapse">
-        <ul class="nav">
-					<% if user_signed_in? %>
-					  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-						<%= link_to 'Topics', topics_path %>
-						<%= link_to 'Gallery', galleries_path %>
-					<% else %>
-					  <%= link_to 'Login', new_user_session_path %>
-					<% end %>
-        </ul>
+      <ul class="dropdown-menu">
+			<% if user_signed_in? %>
+				<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+			<% else %>
+				<li><%= link_to 'Login', new_user_session_path %></li>
+			<% end %>
+      </ul>
+    </div>
+    <div class="nav-collapse">
+      <ul class="nav">
 				<% if user_signed_in? %>
-					<p class="navbar-text pull-right">Logged in as <%= current_user.email %></p>
+				  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+					<li><%= link_to 'Topics', topics_path %></li>
+					<li><%= link_to 'Gallery', galleries_path %></li>
+				<% else %>
+				  <li><%= link_to 'Login', new_user_session_path %></li>
 				<% end %>
-      </div>
+      </ul>
     </div>
   </div>
 </div>

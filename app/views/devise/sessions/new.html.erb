@@ -1,19 +1,14 @@
-<h2>Sign in</h2>
+<%= render './shared/error_messages', object: resource %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	<%= render './shared/error_messages', object: resource %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: 'login-form form-inline'}) do |f| %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.email_field :email, placeholder: 'Email', class: 'input-large' %>
+  <%= f.password_field :password, placeholder: 'Password', class: 'input-large' %>
+  <%= f.submit "Sign in", class: 'btn' %>
 
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
