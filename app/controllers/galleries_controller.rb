@@ -19,18 +19,26 @@ class GalleriesController < ApplicationController
 
   def create
     @gallery = Gallery.new(params[:gallery])
-    alert[:alert] = "Gallery wasn't successfully created." unless @gallery.save
-    respond_with @gallery
+    if @gallery.save
+      respond_with @gallery, location: galleries_path
+    else
+      render :index
+    end
   end
 
   def update
-    flash[:alert] = "Gallery wasn't successfully updated." unless @gallery.update_attributes(params[:gallery])
-    respond_with @gallery
+    if @gallery.update_attributes(params[:gallery])
+      flash[:notice] = 'Gallery was successfully updated.'
+      respond_with @gallery, location: galleries_path
+    else
+      flash[:error] = "Gallery wasn't successfully updated."
+      redirect_to galleries_path
+    end
   end
 
   def destroy
     @gallery.destroy
-    redirect_to galleries_path
+    respond_with @gallery, location: galleries_path
   end
   
   protected

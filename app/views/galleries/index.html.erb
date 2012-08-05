@@ -1,23 +1,16 @@
-<h1>Listing galleries</h1>
+<h2>Galleries</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= render 'shared/error_messages', object: @gallery %>
+<%= render 'galleries/form', gallery: Gallery.new %>
 
-<% @galleries.each do |gallery| %>
-  <tr>
-    <td><%= gallery.name %></td>
-    <td><%= link_to 'Show', gallery %></td>
-    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
-    <td><%= link_to 'Destroy', gallery, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th width="25%">Name</th>
+      <th width="25%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @galleries %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Gallery', new_gallery_path %>

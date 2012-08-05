@@ -1,11 +1,5 @@
-<%= form_for(@gallery) do |f| %>
-	<%= render 'shared/error_messages', object: @gallery %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for gallery, html: { class: 'form-inline' } do |f| %>
+  <%= f.text_field :name, class: 'text_field', placeholder: 'Name' %>
+  <%= f.text_field :description, class: 'text_field', placeholder: 'Description' %>
+  <%= f.submit nil, class: 'btn' %>
 <% end %>

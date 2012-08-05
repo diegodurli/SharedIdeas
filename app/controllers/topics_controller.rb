@@ -20,18 +20,22 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic])
-    @topic.save
-    respond_with @topic
+
+    if @topic.save
+      respond_with @topic, location: topics_path
+    else
+      render :index
+    end
   end
 
   def update
-    @topic.update_attributes(params[:topic])
-    respond_with @topic
+    flash[:error] = "Topic wasn't successfully updated." unless @topic.update_attributes(params[:topic])
+    redirect_to topics_path
   end
 
   def destroy
     @topic.destroy
-    redirect_to topics_path
+    respond_with @topic, location: topics_path
   end
 
   protected

@@ -1,25 +1,16 @@
-<h1>Listing topics</h1>
+<h2>Topics</h2>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= render 'shared/error_messages', object: @topic %>
+<%= render 'topics/form', topic: Topic.new %>
 
-<% @topics.each do |topic| %>
-  <tr>
-    <td><%= topic.title %></td>
-    <td><%= topic.description %></td>
-    <td><%= link_to 'Show', topic %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-    <td><%= link_to 'Destroy', topic, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @topics %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Topic', new_topic_path %>
