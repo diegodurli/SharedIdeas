@@ -1,15 +1,7 @@
-<%= form_for [@gallery, @document], html: {multipart: true} do |f| %>
-	<%= render 'shared/error_messages', object: @document %>
-
-  <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :document %><br/>
-    <%= f.file_field :document %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for [gallery, document], html: {multipart: true} do |f| %>
+	<div class='new_document'>
+		<%= f.text_field :name, placeholder: 'Document name' %>
+		<%= f.file_field :document, class: 'input-file' %>
+	  <%= f.submit nil, class: 'btn btn-custom' %>
+	</div>
 <% end %>

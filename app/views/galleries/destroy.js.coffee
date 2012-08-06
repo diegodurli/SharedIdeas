@@ -1,2 +1,2 @@
-$('tr#<%= @gallery.id %>').fadeOut()
+$('div#<%= @gallery.id %>').fadeOut()
 $('div.alert').remove()

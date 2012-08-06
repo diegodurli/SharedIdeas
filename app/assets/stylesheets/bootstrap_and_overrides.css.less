@@ -19,6 +19,7 @@ body{padding-top: 60px;}
 
 @bodyColor: darken(@grayLighter, 2%);
 @tableBackground: @black;
+@fieldsHeight: 18px;
 
 body {
 	background: @bodyColor;
@@ -54,52 +55,6 @@ body {
 	font-size: 20px;
 }
 
-.about_page {
-	@width: 500px;
-	@height: 400px;
-	.size(@height,@width);
-	.centerObj(@height,@width);
-
-	.about_page_header {
-		p { font-size: 50px; }
-		@width_header: 410px;
-		@height_header: 30px;
-		.size(@height_header,@width_header);
-		.centerObjWidth(@width_header);
-	}
-
-	.about_page_body {
-		font-size: 25px;
-		p { font-size: 20px; }
-		@width_body: 500px;
-		@height_body: 100px;
-		.size(@height_body,@width_body);
-		margin-top: 30px;
-		padding-top: 70px;
-	}
-}
-
-.btn-large2 {
-	@width: 30px;
-	@height: 30px;
-	.size(@height,@width);
-}
-
-.btn-large1 {
-	margin-top: 40px;
-	padding: 35px 0px 0px 0px;
-}
-
-.btn-large2 {
-	margin-top: 135px;
-	padding: 35px 0px 0px 0px;
-}
-
-.btn-large3 {
-	font-size: 25px;
-	padding: 20px 0px 0px 0px;
-}
-
 .remote-form {
 	padding-top: 80px;
 }
@@ -114,4 +69,60 @@ body {
 	.size(@height,@width);
 	.centerObj(@height,@width);
 	.scale(1.5);
+}
+
+div.new_document {
+	@width: 50.9%;
+	@height: 28px;
+	.size(@height,@width);
+	.centerObjWidth(@width);
+	.scale(1.2);
+}
+
+.btn-custom {
+  margin-top: -8px;
+}
+
+.title_field {
+  .size(@fieldsHeight,35.8%);
+}
+
+.description_field {
+  .size(@fieldsHeight,50%);
+}
+
+.btn_field {
+  font-size: 11.4px;
+}
+
+.new_form {
+	@width: 45%;
+	@height: 28px;
+	.size(@height,@width);
+	.centerObjWidth(@width);
+	.scale(1.2);  
+}
+
+.edit_form {
+	@width: 50%;
+	@height: 28px;
+	.size(@height,@width);
+	.centerObjWidth(@width);
+	.scale(1.2);  
+}
+
+.show_topic {
+  background: @black; 
+}
+
+.btn_back {
+  margin-top: 80px;
+}
+
+#galleries {
+  margin-top: 80px;
+}
+
+#topics {
+  margin-top: 80px;  
 }

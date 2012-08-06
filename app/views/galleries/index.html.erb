@@ -1,16 +1,8 @@
 <h2>Galleries</h2>
 
 <%= render 'shared/error_messages', object: @gallery %>
-<%= render 'galleries/form', gallery: Gallery.new %>
+<%= render 'galleries/form', gallery: Gallery.new, other_classes: 'new_form' %>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th width="25%">Name</th>
-      <th width="25%">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @galleries %>
-  </tbody>
-</table>
+<div id="galleries">
+	<%= render @galleries %>
+</div>

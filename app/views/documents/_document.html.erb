@@ -1,0 +1,8 @@
+<div class="thumbnail">
+	<%= content_tag	:a, href: "#{document.document}" do %>
+		<%= image_tag document.document_url(:thumb) %>
+		<div class="caption">
+	  	<%= link_to 'Delete', gallery_document_path(gallery_id: @gallery, id: document), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %>
+		</div>
+	<% end %>
+</div>

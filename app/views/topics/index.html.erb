@@ -1,16 +1,8 @@
 <h2>Topics</h2>
 
 <%= render 'shared/error_messages', object: @topic %>
-<%= render 'topics/form', topic: Topic.new %>
+<%= render 'topics/form', topic: Topic.new, other_classes: 'new_form' %>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @topics %>
-  </tbody>
-</table>
+<div id="topics">
+	<%= render @topics %>
+</div>

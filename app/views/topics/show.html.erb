@@ -1,15 +1,9 @@
-<h2>Topic</h2>
-
-<p>
-  <b>Title:</b>
-  <%= @topic.title %><br/>
-  <b>Description:</b>
-  <%= @topic.description %>
-</p>
+<h2>Topic: <%= @topic.title %> - <%= @topic.description %></h2><br/>
 
 <p>
 <% if @topic.comments.any? %>
 	<% @topic.comments.each do |comment| %>
+	<%= gravatar_image_tag comment.get_user_email.to_s %>
 	<% params = {topic_id: @topic, id: comment} %>
   <tr>
     <td><%= comment.description %></td>

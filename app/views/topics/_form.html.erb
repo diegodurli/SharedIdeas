@@ -1,5 +1,5 @@
-<%= form_for topic, html: { class: 'form-inline' } do |f| %>
-  <%= f.text_field :title, placeholder: :title.capitalize, class: 'text_field' %>
-  <%= f.text_area :description, placeholder: :description.capitalize, rows: 1, class: 'text_field' %>
-  <%= f.submit nil, class: 'btn' %>
+<%= form_for topic, html: { class: "form-inline #{other_classes.to_s}" } do |f| %>
+  <%= f.text_field :title, placeholder: :title.capitalize, class: 'text_field title_field' %>
+  <%= f.text_area :description, placeholder: :description.capitalize, rows: 1, class: 'text_field description_field' %>
+  <%= f.submit nil, class: 'btn btn_field' %>
 <% end %>

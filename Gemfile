@@ -7,7 +7,6 @@ gem 'rmagick'
 gem 'carrierwave'
 
 group :development, :test do
-  gem 'newrelic_rpm'
   gem 'sqlite3'
   gem 'debugger'
 end

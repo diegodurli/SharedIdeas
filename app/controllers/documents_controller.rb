@@ -19,8 +19,8 @@ class DocumentsController < ApplicationController
 
   def create
     @document = @documents.new(params[:document])
-    @document.save
-    redirect_to gallery_documents_path(@gallery)
+    flash[:error] = "Document wasn't successfully created." unless @document.save
+    redirect_to gallery_path(@gallery)
   end
 
   def update

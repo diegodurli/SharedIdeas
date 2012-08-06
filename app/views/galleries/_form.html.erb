@@ -1,5 +1,5 @@
-<%= form_for gallery, html: { class: 'form-inline' } do |f| %>
-  <%= f.text_field :name, class: 'text_field', placeholder: 'Name' %>
-  <%= f.text_field :description, class: 'text_field', placeholder: 'Description' %>
-  <%= f.submit nil, class: 'btn' %>
+<%= form_for gallery, html: { class: "form-inline #{other_classes.to_s}" } do |f| %>
+  <%= f.text_field :name, class: 'text_field title_field', placeholder: 'Name' %>
+  <%= f.text_field :description, class: 'text_field description_field', placeholder: 'Description' %>
+  <%= f.submit nil, class: 'btn btn_field' %>
 <% end %>

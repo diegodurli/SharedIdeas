@@ -1,17 +1,13 @@
-<h2>Gallery</h2>
+<h2>Gallery: <%= @gallery.name.capitalize %> - <%= @gallery.description %></h2>
 
-<p>
-  <b>Name</b><br>
-  <%= @gallery.name %>
-</p>
+</br>
+<label><strong>New Document</strong></label>
+<%= render 'documents/form', gallery: @gallery, document: Document.new %><br/><br/>
 
-<p>
-  <b>Description</b><br>
-  <%= @gallery.description %>
-</p>
+<ul class='thumbnails'>	
+	<% @gallery.documents.each do |document| %>
+		<li class='span3'><%= render 'documents/document', document: document %></li>
+	<% end %>
+</ul>
 
-<div class="form-actions">
-  <%= link_to 'Back', galleries_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_gallery_path(@gallery), :class => 'btn' %>
-  <%= link_to 'Delete', gallery_path(@gallery), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
-</div>
+<br/><%= link_to 'Back', galleries_path, :class => 'btn' %>
