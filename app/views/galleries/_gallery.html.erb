@@ -1,6 +1,10 @@
-<div id="<%= gallery.id %>">
-	<%= link_to gallery.name, gallery_path(gallery) %>
-	<%= gallery.description %>
-  <%= link_to '', edit_gallery_path(gallery), class: 'icon-edit' %>
-  <%= link_to '', gallery, method: :delete, remote: true, :confirm => 'Are you sure?', class: 'icon-remove' %>
+<div id="<%= gallery.id %>" class='show_snippet_edit_remove'>
+	<%= content_tag :div, class: 'snippet_title' do %>
+		<%= link_to gallery.name, gallery_path(gallery) %>
+	<% end %>
+	<%= content_tag :div, class: 'snippet_icons' do %>
+		<%= link_to '', edit_gallery_path(gallery), class: 'icon-edit edit_snippet_icon' %>
+		<%= link_to '', gallery_path(gallery), confirm: 'Are you sure?', remote: true, method: :delete, class: 'icon-remove remove_snippet_icon' %>
+	<% end %>
+	<i><%= content_tag :div, " #{gallery.description}", class: 'snippet_description' %></i>
 </div>

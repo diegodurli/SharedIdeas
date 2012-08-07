@@ -1,6 +1,10 @@
-<div id="<%= topic.id %>">
-  <%= link_to topic.title, topic %>
-	<%= topic.description %>
-  <%= link_to '', edit_topic_path(topic), class: 'icon-edit' %>
-  <%= link_to '', topic_path(topic), confirm: 'Are you sure?', remote: true, method: :delete, class: 'icon-remove' %>
+<div id="<%= topic.id %>" class='show_snippet_edit_remove'>
+	<%= content_tag :div, class: 'snippet_title' do %>
+		<%= link_to topic.title, topic_path(topic) %>
+	<% end %>
+	<%= content_tag :div, class: 'snippet_icons' do %>
+		<%= link_to '', edit_topic_path(topic), class: 'icon-edit edit_snippet_icon' %>
+		<%= link_to '', topic_path(topic), confirm: 'Are you sure?', remote: true, method: :delete, class: 'icon-remove remove_snippet_icon' %>
+	<% end %>
+	<i><%= content_tag :div, " #{topic.description}", class: 'snippet_description' %></i>
 </div>

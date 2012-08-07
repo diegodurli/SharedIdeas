@@ -97,10 +97,10 @@ div.new_document {
 
 .new_form {
 	@width: 45%;
-	@height: 28px;
-	.size(@height,@width);
-	.centerObjWidth(@width);
-	.scale(1.2);  
+	@height: @fieldsHeight;
+  .size(@height,@width);
+  .centerObjWidth(@width);
+	.scale(1.2);
 }
 
 .edit_form {
@@ -111,18 +111,47 @@ div.new_document {
 	.scale(1.2);  
 }
 
-.show_topic {
-  background: @black; 
-}
-
 .btn_back {
   margin-top: 80px;
 }
 
-#galleries {
+#topics, #galleries {
+  width: 87%;
+	.center-block();
   margin-top: 80px;
 }
 
-#topics {
-  margin-top: 80px;  
+.show_snippet_edit_remove {
+	width: 100%;
+	height: 50px;
+  margin-bottom: 30px;
+  .border-radius(4px);
+  -webkit-box-shadow: 0px 0px 6px 0.5px rgba(120, 120, 120, 1);
+  box-shadow: 0px 0px 6px 0.5px rgba(120, 120, 120, 1);
+  .scale(1.05);
+}
+
+.snippet_title {
+  float: left;
+  width: 95%;
+  height: 50%;
+  margin-left: 2px;
+}
+
+.snippet_icons {
+  margin-left: 95%;
+  width: 5%;
+  height: 50%;
+}
+
+.snippet_description {
+  height: 50%;
+  margin-left: 2px;
+  color: @placeholderText;
+}
+
+.edit_snippet_icon,
+.remove_snippet_icon {
+  margin-top: 10%;
+  margin-left: 10%;
 }
