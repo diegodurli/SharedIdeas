@@ -129,29 +129,83 @@ div.new_document {
   -webkit-box-shadow: 0px 0px 6px 0.5px rgba(120, 120, 120, 1);
   box-shadow: 0px 0px 6px 0.5px rgba(120, 120, 120, 1);
   .scale(1.05);
+  
+  .snippet_title {
+    float: left;
+    width: 95%;
+    height: 50%;
+    margin-left: 2px;
+  }
+
+  .snippet_description {
+    background: @red;
+    width: 95%;
+    height: 50%;
+    margin-left: 2px;
+    color: @placeholderText;
+  }
+
+  .snippet_icons {
+    background: @black;
+    margin-left: 95%;
+    width: 5%;
+    height: 100%;
+    .edit_snippet_icon,
+    .remove_snippet_icon {
+      margin-top: 2px;
+      margin-left: 2px;
+    }
+  }
 }
 
-.snippet_title {
-  float: left;
-  width: 95%;
-  height: 50%;
-  margin-left: 2px;
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  .title_field {
+    float: left;
+    width: 100%;
+  }
+  .description_field {
+    width: 100%;
+    margin-bottom: 200px;
+  }
+  .visibile_mobile {
+    width: 100%;
+    .btn_field {
+      .center-block();
+    }
+  }
+  .content {
+    padding-top: 20%;
+  }
+
+  .edit_snippet_icon,
+  .remove_snippet_icon {
+    .clearfix();
+    margin-top: -10px;
+  }
+  .visible-phone {
+  }
+  .hidden-phone {
+    visibility: hidden;
+  }
 }
 
-.snippet_icons {
-  margin-left: 95%;
-  width: 5%;
-  height: 50%;
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .hidden-phone,
+  .hidden-tablet {
+    visibility: hidden;
+  }
 }
 
-.snippet_description {
-  height: 50%;
-  margin-left: 2px;
-  color: @placeholderText;
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .hidden-phone,
+  .hidden-tablet {
+    visibility: hidden;
+  }
 }
 
-.edit_snippet_icon,
-.remove_snippet_icon {
-  margin-top: 10%;
-  margin-left: 10%;
+/* Large desktop */
+@media (min-width: 1200px) {
 }
