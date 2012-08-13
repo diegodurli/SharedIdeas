@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to topic_path(@topic)
+    respond_with @comment, location: topic_path(@topic)
   end
 
   protected

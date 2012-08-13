@@ -115,6 +115,71 @@ div.new_document {
   margin-top: 80px;
 }
 
+.comments_container {
+  width: 60%;
+  .center-block();
+
+  .text_area_comment {
+    width: 99%;
+  }
+
+  .form_comment {
+    margin-top: 5%;
+  }
+  
+  #comment {
+    font-size: 90%;
+    width: 100%;
+    margin-top: 10%;
+
+    .comment {
+      margin-bottom: 50px;
+      overflow:hidden;
+
+      .avatar {
+        width: 9%;
+        margin-right: 2%;
+        img {
+          border: 2px solid #e2e2e2;
+          padding: 5px;
+        }
+        float: left;
+      }
+  
+      .meta {
+        width: 91%;
+        margin-left: 9%;
+        padding-left: 2%;
+
+        .author {
+          font-size: 90%;
+          color: #9b9e9f;
+          width: 88%;
+          float: left;
+        }
+        
+        .snippet_icons {
+          width: 12%;
+          float: left;
+        }
+        
+        .comment_description {
+          padding-right: 5%;
+          white-space: pre-wrap;      /* CSS3 */   
+          white-space: -moz-pre-wrap; /* Firefox */    
+          white-space: -pre-wrap;     /* Opera <7 */   
+          white-space: -o-pre-wrap;   /* Opera 7 */    
+          word-wrap: break-word;      /* IE */
+        }
+      }
+    }
+  }
+
+  .btn_back_comments {
+    margin-top: 30px;
+  }
+}
+
 #topics, #galleries {
   width: 87%;
 	.center-block();
@@ -155,37 +220,47 @@ div.new_document {
       padding-left: 4%;
     }
   }
-  
-/*  .snippet_title {
-    background: @yellow;
-    float: left;
-    width: 94%;
-    height: 50%;
-    margin-left: 1%;
-  }
-
-  .snippet_description {
-    background: @red;
-    width: 94%;
-    margin-left: 1%;
-    color: @placeholderText;
-  }
-
-  .snippet_icons {
-    background: @black;
-    width: 5%;
-    height: 100%;
-    float: left;
-    .edit_snippet_icon,
-    .remove_snippet_icon {
-      margin-top: 2px;
-      margin-left: 2px;
-    }
-  }*/
 }
 
 /* Landscape phones and down */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .form_documents {
+    width: 30%;
+    margin-left: 2%;
+  }
+  
+  .div_thumbnails {
+    margin-top: 50%;
+  }
+  
+  .comments_container {
+    margin-top: 1%;
+    h2 {
+      font-size: 100%;
+    }
+
+    #comment {
+      margin-top: 1%;
+      margin-bottom: 1%;
+
+      .comment {
+        margin-top: 2%;
+        margin-bottom: 10%;
+        .meta {
+          .author, .comment_description {
+            width: 80%;
+            margin-left: 9%;
+            font-size: 70%;
+          }
+          .snippet_icons {
+            .scale(0.9);
+            width: 5%;
+          }
+        }
+      }
+    }
+  }
+  
   .title_field {
     float: left;
     width: 100%;
@@ -207,7 +282,7 @@ div.new_document {
   .edit_snippet_icon,
   .remove_snippet_icon {
     .clearfix();
-    margin-top: -10px;
+    margin-top: -2%;
   }
   .visible-phone {
   }
@@ -217,21 +292,92 @@ div.new_document {
 }
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
+@media (min-width: 600px) and (max-width: 767px) {
+  .div_thumbnails {
+    margin-top: 25%;
+  }
+  
   .hidden-phone,
   .hidden-tablet {
     visibility: hidden;
+  }
+  
+  .comments_container {
+    #comment {
+      .comment {
+        .meta {
+          .author, .comment_description {
+            width: 90%;
+            margin-left: 4%;
+            font-size: 90%;
+          }
+          .snippet_icons {
+            .scale(0.9);
+            width: 5%;
+          }
+        }
+      }
+    }
   }
 }
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
+  .div_thumbnails {
+    margin-top: 12%;
+  }
+  
   .hidden-phone,
   .hidden-tablet {
     visibility: hidden;
+  }
+  
+  .comments_container {
+    #comment {
+      .comment {
+        .meta {
+          .author, .comment_description {
+            width: 90%;
+            margin-left: 3%;
+            font-size: 90%;
+          }
+          .snippet_icons {
+            .scale(0.9);
+            width: 5%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 979px) and (max-width: 1200px) {
+  .div_thumbnails {
+    margin-top: 10%;
+  }
+  
+  .comments_container {
+    #comment {
+      .comment {
+        .meta {
+          .author, .comment_description {
+            width: 90%;
+            margin-left: 3%;
+            font-size: 90%;
+          }
+          .snippet_icons {
+            .scale(0.9);
+            width: 5%;
+          }
+        }
+      }
+    }
   }
 }
 
 /* Large desktop */
 @media (min-width: 1200px) {
+  .div_thumbnails {
+    margin-top: 10%;
+  }
 }

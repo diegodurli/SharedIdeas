@@ -1,0 +1,13 @@
+<div id="<%= comment.id %>" class='comment'>
+	<% params = {topic_id: @topic, id: comment} %>
+
+	<div class='avatar'><%= gravatar_image_tag comment.get_user.email.to_s %></div>
+	<div class='meta'>
+		<%= content_tag :div, "Posted by #{comment.get_user.email.to_s}", class: 'author' %>
+		<%= content_tag :div, class: 'snippet_icons' do %>
+			<%#= link_to '', edit_topic_comment_path(params), class: 'icon-edit' %>
+			<%= link_to '', topic_comment_path(params), confirm: 'Are you sure?', remote: true, method: :delete, class: 'icon-remove' %>
+		<% end %>
+		<i><%= content_tag :div, comment.description, class: 'comment_description' %></i>
+	</div>
+</div>

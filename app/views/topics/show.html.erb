@@ -1,21 +1,15 @@
-<h2>Topic: <%= @topic.title %> - <%= @topic.description %></h2><br/>
+<div class='comments_container'>
+	<h2>Topic: <%= @topic.title %> - <%= @topic.description %></h2><br/>
 
-<p>
-<% if @topic.comments.any? %>
-	<% @topic.comments.each do |comment| %>
-	<%= gravatar_image_tag comment.get_user_email.to_s %>
-	<% params = {topic_id: @topic, id: comment} %>
-  <tr>
-    <td><%= comment.description %></td>
-    <td><%= link_to 'Edit'   , edit_topic_comment_path(params) %></td>
-    <td><%= link_to 'Destroy', topic_comment_path(params), confirm: 'Are you sure?', method: :delete %></td>
-  </tr><br/>
-	<% end %>
-<% else %>
-	<p>This Topic wasn't commented yet.</p>
-<% end %>
-</p>
+	<div class='form_comment'><%= render "comments/form", topic: @topic, comment: Comment.new %></div>
 
-<%= render "comments/form", topic: @topic, comment: @topic.comments.new %>
-
-<%= link_to 'Back', topics_path %>
+	<div id='comment' class='content'>
+		<% if @topic.comments.any? %>
+			<%= render @topic.comments %>
+		<% else %>
+			<p>This Topic wasn't commented yet.</p>
+		<% end %>	
+	</div>
+	
+	<%= link_to 'Back', topics_path, class: 'btn btn_back_comments' %>
+</div>

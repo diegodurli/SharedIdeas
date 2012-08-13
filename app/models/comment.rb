@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
   belongs_to :topic
   validates_presence_of :description
   
-  def get_user_email
-    User.find(self.user_id).email
+  def get_user
+    User.find(self.user_id)
   end
 end
